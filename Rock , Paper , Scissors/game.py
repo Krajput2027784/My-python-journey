@@ -1,20 +1,20 @@
 print("🎮Game rock,paper and scissors🎮")
-#let user select first from rock,paper,scissors
+
 User = input("enter User's value(rock/paper/scissors):").lower()
-print(User,"👌")#print the user's choice
+print(User,"👌")
 
-import random #used to import choice of computer 
-choose = ["rock" , "paper" , "scissors"]#choose in this list
+import random 
+choose = ["rock" , "paper" , "scissors"]
 computer = random.choice(choose)
-print("Computer :",computer,"😎")#successfully print the computer's choice
+print("Computer :",computer,"😎")
 
-if User == computer:#choices of user and computer are same 
-   print("Draw","😣")#game draw between user and computer
+if User == computer:
+   print("Draw","😣")
 
 elif (User == "paper" and computer == "rock")or\
  (User == "scissors" and computer == "paper" )or\
- (User == "rock" and computer == "scissors"):#conditions where user wins
+ (User == "rock" and computer == "scissors"):
     print("You win!","🤩")
 
 else:
-  print("Computer wins","🤭")#computer wins 
+  print("Computer wins","🤭")
