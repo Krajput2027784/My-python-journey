@@ -1,0 +1,104 @@
+print("===== LIBRARY MANAGEMENT SYSTEM =====")
+
+books = [
+    ("Python", "Available"),
+    ("Java", "Available"),
+    ("DSA", "Available")
+]
+
+while True:
+
+    print("\n===== MENU =====")
+    print("1. Add Book")
+    print("2. View Books")
+    print("3. Search Book")
+    print("4. Issue Book")
+    print("5. Return Book")
+    print("6. Delete Book")
+    print("7. Exit")
+
+    choice = input("Enter Choice: ")
+
+    # Add Book
+    if choice == "1":
+        name = input("Enter Book Name: ")
+        books.append((name, "Available"))
+        print("Book Added Successfully!")
+
+    # View Books
+    elif choice == "2":
+        print("\nBooks List")
+        for book in books:
+            print(book)
+
+    # Search Book
+    elif choice == "3":
+        name = input("Enter Book Name: ")
+        found = False
+
+        for book in books:
+            if book[0].lower() == name.lower():
+                print("Book Found:", book)
+                found = True
+                break
+
+        if not found:
+            print("Book Not Found!")
+
+    # Issue Book
+    elif choice == "4":
+        name = input("Enter Book Name: ")
+
+        for i in range(len(books)):
+            if books[i][0].lower() == name.lower():
+
+                if books[i][1] == "Available":
+                    books[i] = (books[i][0], "Issued")
+                    print("Book Issued Successfully!")
+                else:
+                    print("Book Already Issued!")
+
+                break
+        else:
+            print("Book Not Found!")
+
+    # Return Book
+    elif choice == "5":
+        name = input("Enter Book Name: ")
+
+        for i in range(len(books)):
+            if books[i][0].lower() == name.lower():
+
+                if books[i][1] == "Issued":
+                    books[i] = (books[i][0], "Available")
+                    print("Book Returned Successfully!")
+                else:
+                    print("Book is Already Available!")
+
+                break
+        else:
+            print("Book Not Found!")
+
+    # Delete Book
+    elif choice == "6":
+        name = input("Enter Book Name: ")
+
+        found = False
+
+        for book in books:
+            if book[0].lower() == name.lower():
+                books.remove(book)
+                print("Book Deleted Successfully!")
+                found = True
+                break
+
+        if not found:
+            print("Book Not Found!")
+
+    # Exit
+    elif choice == "7":
+        print("Thank You!")
+        break
+
+    else:
+        print("Invalid Choice!")
